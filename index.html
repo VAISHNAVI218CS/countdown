@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#17251f" />
+    <title>Festival Countdown</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main class="page-shell">
+      <header class="topbar">
+        <a class="wordmark" href="index.html" aria-label="Festival Countdown home">
+          <span class="wordmark-mark" aria-hidden="true">✳</span>
+          <span>DAYMARK</span>
+        </a>
+        <div class="today-display">
+          <span class="today-label">TODAY</span>
+          <time id="current-date"></time>
+        </div>
+      </header>
+
+      <section class="countdown-layout" aria-labelledby="events-title">
+        <div class="event-art" role="img" aria-label="Colorful fireworks lighting up the night sky">
+          <div class="art-caption">
+            <span class="eyebrow">MAKE THE WAIT PART OF IT</span>
+            <p>Good things<br />are worth counting.</p>
+            <span class="caption-rule" aria-hidden="true"></span>
+          </div>
+          <span class="art-index" aria-hidden="true">ALL YEAR, ANY REASON</span>
+        </div>
+
+        <div class="countdown-panel">
+          <div class="events-heading">
+            <div>
+              <span class="eyebrow">MARK THE MOMENTS</span>
+              <h1 id="events-title">Your countdowns</h1>
+            </div>
+            <span class="event-count" id="event-count">1 EVENT</span>
+          </div>
+
+          <div class="event-list" id="event-list" aria-label="Your saved countdowns"></div>
+
+          <form class="event-controls" id="add-event-form">
+            <span class="field-label">ADD A COUNTDOWN</span>
+            <div class="name-date-row">
+              <label class="visually-hidden" for="event-name">Event name</label>
+              <input id="event-name" class="text-input" type="text" maxlength="32" placeholder="Event name" required />
+              <label class="visually-hidden" for="event-date">Event date and time</label>
+              <input id="event-date" class="text-input date-input" type="datetime-local" required />
+            </div>
+
+            <div class="preset-heading"><span class="field-label">QUICK PICKS</span></div>
+            <div class="presets" role="group" aria-label="Choose an event name">
+              <button class="preset" type="button" data-event="Birthday">Birthday</button>
+              <button class="preset" type="button" data-event="Anniversary">Anniversary</button>
+              <button class="preset" type="button" data-event="Holiday">Holiday</button>
+              <button class="preset" type="button" data-event="Custom event">Custom</button>
+            </div>
+            <button class="add-event-button" type="submit"><span aria-hidden="true">+</span> Add event</button>
+          </form>
+
+          <footer class="panel-footer">
+            <span class="live-indicator" aria-hidden="true"></span>
+            <span>ROOM FOR EVERY MOMENT</span>
+            <span class="footer-spark" aria-hidden="true">✳</span>
+          </footer>
+        </div>
+      </section>
+      <p class="date-note">Birthdays, holidays, milestones, and all the moments in between.</p>
+    </main>
+    <template id="event-card-template">
+      <article class="event-card">
+        <div class="event-card-heading">
+          <div class="event-card-copy">
+            <h2 class="event-card-title"></h2>
+            <p class="event-card-date"></p>
+          </div>
+          <button class="remove-event" type="button" aria-label="Remove countdown">&times;</button>
+        </div>
+        <div class="event-timer" aria-label="Time remaining">
+          <div class="time-unit"><span class="time-value" data-unit="days">000</span><span class="time-label">DAYS</span></div>
+          <span class="time-divider" aria-hidden="true">:</span>
+          <div class="time-unit"><span class="time-value" data-unit="hours">00</span><span class="time-label">HOURS</span></div>
+          <span class="time-divider" aria-hidden="true">:</span>
+          <div class="time-unit"><span class="time-value" data-unit="minutes">00</span><span class="time-label">MINUTES</span></div>
+          <span class="time-divider seconds-divider" aria-hidden="true">:</span>
+          <div class="time-unit seconds-unit"><span class="time-value" data-unit="seconds">00</span><span class="time-label">SECONDS</span></div>
+        </div>
+        <p class="event-card-status"></p>
+      </article>
+    </template>
+  </body>
+</html>
